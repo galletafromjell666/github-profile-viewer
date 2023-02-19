@@ -5,6 +5,7 @@ const SearchBar = ({ onChildSubmit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     onChildSubmit(formText);
+    setFormText("")
   };
   const handleChange = (e) => setFormText(e.target.value);
   return (

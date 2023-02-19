@@ -2,29 +2,31 @@ import { useState } from "react";
 
 function useFetchGitAPI() {
   const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [isLoading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   async function fetchData(endpoint) {
     try {
+      setError(false);
       setLoading(true);
       const url = `https://api.github.com/users/${endpoint}`;
       const response = await fetch(url);
       if (response.ok) {
         const result = await response.json();
-        console.log("data set", result);
         setData(result);
       } else {
-        setError(res.statusText || "Oh no :(.");
+        setError(res.statusText || "Opps, Something went wrong.");
       }
     } catch (e) {
       setError(e);
     } finally {
-      setLoading(false);
+      setTimeout(() => {
+        setLoading(false);
+      }, Math.floor(Math.random() * (950 - 550 + 1)) + 550);
     }
   }
 
-  return { data, loading, error, fetchData };
+  return { data, isLoading, error, fetchData };
 }
 
 export default useFetchGitAPI;

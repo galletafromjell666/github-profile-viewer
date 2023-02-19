@@ -5,5 +5,8 @@
 @layer base {
   body {
     @apply font-primary;
+    background: #e55d87;
+    background: -webkit-linear-gradient(to right, #5fc3e4, #e55d87);
+    background: linear-gradient(to right, #5fc3e4, #e55d87);
   }
 }

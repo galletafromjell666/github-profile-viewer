@@ -3,7 +3,7 @@ import { MdOpenInNew } from "react-icons/md";
 
 const ProfileCard = ({ avatar_url, bio, html_url, location, name, login }) => {
   return (
-    <div className="w-full max-w-[450px] min-h-[585px] bg-black/20 text-white backdrop-blur-[32px] rounded-[32px] py-6 px-6 md:py-12">
+    <div className="w-full max-w-[450px] min-h-[585px] bg-black/20 text-white backdrop-blur-[32px] rounded-[32px] py-6 px-6 md:py-8">
       <div>
         <img className="rounded-md" src={avatar_url} />
       </div>

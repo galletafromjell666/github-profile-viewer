@@ -1,10 +1,11 @@
 import React from "react";
-
-import ProfileCard from "../components/ProfileCard";
-import SearchBar from "../components/SearchBar";
-import Spinner from "../components/Spinner";
+import {
+  ProfileCard,
+  SearchBar,
+  Spinner,
+  Notification,
+} from "../components/index";
 import useFetchGitAPI from "../hooks/useFetchGitAPI";
-import Notification from '../components/Notification'
 const ProfileViewer = () => {
   const { data, isLoading, error, fetchData } = useFetchGitAPI();
   let messageComponent;
@@ -28,13 +29,13 @@ const ProfileViewer = () => {
     messageComponent = <Spinner />;
   }
   if (error) {
-    messageComponent = <Notification
-    mainText={"Oops! Something went wrong"}
-    subText={
-      "Please try again later or with a different username."
-    }
-    imgSrc={"./sad_file.png"}
-  />;
+    messageComponent = (
+      <Notification
+        mainText={"Oops! Something broke :("}
+        subText={"Please try again later or with a different username."}
+        imgSrc={"./sad_file.png"}
+      />
+    );
   }
 
   if (data && !isLoading && !error) {
